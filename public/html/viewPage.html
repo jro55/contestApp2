@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="videoApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contest App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+</head>
+<body ng-controller="videoController">
+
+<h1>View Videos</h1>
+
+<div ng-repeat="entry in entryArray | limitTo:2">
+     <div>{{entry.name}}</div>
+     <iframe width="560" height="315" src="{{$sce.trustAsResourceUrl(entry.url)}}" frameborder="0" allowfullscreen></iframe>
+     <button ng-click="voteFromHtml($index)">Vote Now</button>
+     <div>{{entry.numOfVotes}}</div>
+</div>
+
+<button ng-click="endRound()">End Round</button>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

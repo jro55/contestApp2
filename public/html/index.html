@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="videoApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contest App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+</head>
+<body ng-controller="videoController">
+
+<h1>{{greeting}}</h1>
+
+<form ng-submit="createEntry()">
+    <input type="text" placeholder="Name" ng-model="videoEntry.name">
+    <input type="text" placeholder="URL" ng-model="videoEntry.url">
+    <input type="text" placeholder="Title" ng-model="videoEntry.title">
+    <input type="text" placeholder="Description" ng-model="videoEntry.description">
+    <input type="submit">
+</form>
+    
+<div ng-repeat="entry in entryArray">
+    <div>{{entry.name}}</div>
+</div>
+    
+<a href="/viewPage">Watch Entries</a>
+    
+{{warning}}
+
+    
+<script src="/js/main.js"></script>
+</body>
+</html>
